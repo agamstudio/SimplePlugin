@@ -1,0 +1,6 @@
+name: SimplePlugins
+version: '1.0'
+main: me.Agam.simplePlugins.SimplePlugins
+api-version: '1.21'
+authors: [ Agam ]
+description: test for practice
