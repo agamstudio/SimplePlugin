@@ -11,6 +11,9 @@ public class MsgCommand implements CommandExecutor {
     String msg = "";
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        StringBuilder sb = new StringBuilder();
+
         if (!(sender instanceof Player)) /* בודק אם מי שהזין את הפקודה הוא שחקן */ {
             sender.sendMessage("הפקודה יכולה להיות משומשת על ידי שחקן בלבד!");
             return false;
@@ -21,7 +24,6 @@ public class MsgCommand implements CommandExecutor {
             sender.sendMessage("אתה צריך להזין שם של שחקן");
 
             return false;
-
         }
 
         if (Bukkit.getPlayer(args[0]) == sender) {
@@ -37,12 +39,13 @@ public class MsgCommand implements CommandExecutor {
 
         else {
             for (int i = 1; i < args.length; i++){
-                msg = msg + args[i] + " ";
+                sb.append(args[i]).append(" ");
             }
-            Player target = Bukkit.getPlayer(args[0]);
-            target.sendMessage(msg);
-            sender.sendMessage("ל-" + target.getName() + ": " + msg);
+            msg = sb.toString();
 
+            Player target = Bukkit.getPlayer(args[0]);
+            target.sendMessage(sender.getName() + " » " + target.getName() + ": " + msg);
+            sender.sendMessage(target.getName() + " » " + sender.getName() + ": " + msg);
         }
 
         return true;
