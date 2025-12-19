@@ -8,11 +8,10 @@ import org.bukkit.entity.Player;
 
 public class MsgCommand implements CommandExecutor {
 
-    String msg = "";
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("");
 
         if (!(sender instanceof Player)) /* בודק אם מי שהזין את הפקודה הוא שחקן */ {
             sender.sendMessage("הפקודה יכולה להיות משומשת על ידי שחקן בלבד!");
@@ -31,7 +30,6 @@ public class MsgCommand implements CommandExecutor {
             return false;
         }
 
-        msg = "";
         if (Bukkit.getPlayer(args[0]) == null) {
             sender.sendMessage("השחקן אותו הזנת לא נמצא בשרת!");
             return false;
@@ -41,13 +39,11 @@ public class MsgCommand implements CommandExecutor {
             for (int i = 1; i < args.length; i++){
                 sb.append(args[i]).append(" ");
             }
-            msg = sb.toString();
 
             Player target = Bukkit.getPlayer(args[0]);
-            target.sendMessage(sender.getName() + " » " + target.getName() + ": " + msg);
-            sender.sendMessage(target.getName() + " » " + sender.getName() + ": " + msg);
+            target.sendMessage(sender.getName() + " » " + target.getName() + ": " + sb);
+            sender.sendMessage(sender.getName() + " » " + target.getName() + ": " + sb);
         }
-
         return true;
     }
 }
