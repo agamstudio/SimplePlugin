@@ -9,6 +9,7 @@ public final class SimplePlugins extends JavaPlugin {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new Events(), this);
         System.out.println("הפלאגין הופעל בהצלחה!");
+        this.getCommand("msg").setExecutor(new MsgCommand());
     }
 
     @Override

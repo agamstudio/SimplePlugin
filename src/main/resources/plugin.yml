@@ -4,3 +4,7 @@ main: me.Agam.simplePlugins.SimplePlugins
 api-version: '1.21'
 authors: [ Agam ]
 description: test for practice
+commands:
+  msg:
+    description: send a message to the player
+    usage: /msg <player> <message>
