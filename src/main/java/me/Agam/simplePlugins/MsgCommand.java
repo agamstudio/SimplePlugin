@@ -18,9 +18,15 @@ public class MsgCommand implements CommandExecutor {
             return false;
         }
 
-        if (args.length <= 0) {
+        if (args.length == 0) {
 
             sender.sendMessage("אתה צריך להזין שם של שחקן");
+
+            return false;
+        }
+        if (args.length == 1) {
+
+            sender.sendMessage("אתה צריך להזין לפחות מילה אחת בהודעה");
 
             return false;
         }
@@ -29,7 +35,6 @@ public class MsgCommand implements CommandExecutor {
             sender.sendMessage("אינך יכול לשלוח הודעה לעצמך.");
             return false;
         }
-
         if (Bukkit.getPlayer(args[0]) == null) {
             sender.sendMessage("השחקן אותו הזנת לא נמצא בשרת!");
             return false;
