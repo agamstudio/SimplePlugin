@@ -30,6 +30,7 @@ public final class SimplePlugins extends JavaPlugin {
         this.getCommand("msg").setExecutor(new MsgCommand());
         this.getCommand("warp").setExecutor(new CMD_warp());
         this.getCommand("setwarp").setExecutor(new CMD_setwarp());
+        this.getCommand("deletewarp").setExecutor(new CMD_deletewarp());
 
         if (!getDataFolder().exists()) {
             getDataFolder().mkdirs();
