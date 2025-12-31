@@ -1,4 +1,4 @@
-package me.Agam.simplePlugins;
+package me.Agam.simplePlugins.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -6,19 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-public class Events implements Listener {
-
-    @EventHandler
-    public void onShift(PlayerToggleSneakEvent event) {
-        Player player = event.getPlayer();
-
-        if (event.isSneaking()) {
-            Bukkit.broadcastMessage(player.getName() + " עשה פלוץ, תצחקו עליו!!!");
-
-        }
-    }
+public class QuitJoinEvent implements Listener {
 
     @EventHandler
     public void onServerJoin(PlayerJoinEvent event){

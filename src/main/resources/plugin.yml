@@ -8,3 +8,13 @@ commands:
   msg:
     description: send a message to the player
     usage: /msg <player> <message>
+  warp:
+    description: teleport to a warp
+    usage: /warp <id>
+  setwarp:
+    description: save a warp
+    usage: /setwarp <id>
+  deletewarp:
+    description: delete a warp forever
+    usage: /deletewarp <id>
+    aliases: [delwarp, removewarp]
